@@ -7,19 +7,27 @@ class App extends Component {
     super(props)
   
     this.state = {
-       name: ['Ekene', 'Greg'],
-       age: [24, 25],
+       persons: [
+         {name: "Greg", age: 24},
+         {name: "Sharon", age: 25}
+       ],
        showNames: false
     }
   }
   switchNameHandler = (newName1, newName2) => {
     this.setState({
-      name: [newName1, newName2]
+      persons: [
+        {name: newName1, age: 24},
+        {name: newName2, age: 25}
+      ]
     })
   }
   setValueHandler = (event) => {
     this.setState({
-      name: [event.target.value, "Charles"]
+      persons: [
+        {name: event.target.value, age: 24},
+        {name: "Sharon", age: 25}
+      ]
     })
   }
   toggleSetHandler = () => {
@@ -39,8 +47,8 @@ class App extends Component {
     if(this.state.showNames){
       person =  
     <div>
-      <Greet setValue={this.setValueHandler} name={this.state.name[0]} age={this.state.age[0]}/>
-      <Greet name={this.state.name[1]}  age={this.state.age[1]} click={() => this.switchNameHandler("Chim", "Osi")}> , I love to sing</Greet> {/*This an easier way to write bind*/}
+      <Greet setValue={this.setValueHandler} name={this.state.persons[0].name} age={this.state.persons[1].age}/>
+      <Greet name={this.state.persons[1].name}  age={this.state.persons[1].age} click={() => this.switchNameHandler("Chim", "Anita")}> , I love to sing</Greet> {/*This an easier way to write bind*/}
     </div>
     }
 
